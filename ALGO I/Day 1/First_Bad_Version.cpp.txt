@@ -1,0 +1,17 @@
+class Solution:
+    def firstBadVersion(self, n: int) -> int:
+        l,u=1,n
+        while u>=l:
+            m=(l+u)//2
+            
+            
+            if isBadVersion(m)==True:
+                if isBadVersion(m-1)==False:
+                    return m
+                if  isBadVersion(m-1)==True:
+                    u=m-1
+                if m==1:
+                    return 1
+                
+            if isBadVersion(m)==False:
+                l=m+1

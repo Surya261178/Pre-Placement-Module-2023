@@ -1,0 +1,17 @@
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        l, r = 0, len(nums)-1
+        rr = r 
+        ans = [0] * (r + 1)
+        
+        while l <= r:
+            a, b = nums[l]**2, nums[r]**2
+            if a <= b:
+                ans[rr] = b
+                r -= 1
+            else:
+                ans[rr] = a
+                l +=1
+            rr -= 1
+            
+        return ans
